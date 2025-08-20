@@ -1,0 +1,13 @@
+{
+  "name": "generated-project",
+  "version": "1.0.0",
+  "description": "Generated project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}

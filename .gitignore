@@ -1,0 +1,5 @@
+.venv
+.vs
+.env
+__pycache__
+a.txt

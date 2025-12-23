@@ -1,0 +1,101 @@
+['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', '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', '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', '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', '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']
+=== Initializing Project Generator ===
+=== Starting Pipeline ===
+=== Starting Project Generation Pipeline ===
+1. Parsing project requirements...
+Calling language model...
+Model language responded successfully
+Detected: python | fastapi | REST API
+Reasoning: FastAPI is explicitly requested and is a Python framework for building REST APIs.
+Calling language model...
+Model language responded successfully
+Generated project structure for python using fastapi
+2. Decomposing tasks...
+Calling reasoning model...
+Model reasoning responded successfully
+Raw decomposition response:
+[
+  {
+    "name": "create_main_app",
+    "description": "Create the main FastAPI application file with a root endpoint returning a welcome message",
+    "subtasks_necessary": false,
+    "function_name": "read_root",
+    "parameters": {},
+    "return_type": "dict",
+    "file_path": "./main.py",
+    "language": "python",
+    "framework": "fastapi",
+    "implementation_details": {
+      "TYPE": "function",
+      "expected_loc": 10,
+      "to_be_coded": true,
+      "logic": "1. Import FastAPI from f...
+Cleaned response:
+[
+  {
+    "name": "create_main_app",
+    "description": "Create the main FastAPI application file with a root endpoint returning a welcome message",
+    "subtasks_necessary": false,
+    "function_name": "read_root",
+    "parameters": {},
+    "return_type": "dict",
+    "file_path": "./main.py",
+    "...
+Successfully parsed task data
+Received list response, using first element
+
+=== Task Tree Structure ===
+- Parent Task [python/fastapi]
+  Description: Root task container...
+  Function: None
+  File: ./app/
+  Subtasks: 1
+    - create_main_app [python/fastapi]
+      Description: Create the main FastAPI application file with a ro...
+      Function: read_root
+      File: ./main.py
+      Subtasks: 0
+==========================
+
+3. Building project files...
+
+ 
+ 
+ 
+{'name': 'Parent Task', 'description': 'Root task container', 'subtasks': [{'name': 'create_main_app', 'description': 'Create the main FastAPI application file with a root endpoint returning a welcome message', 'subtasks': [], 'function_name': 'read_root', 'parameters': {}, 'return_type': 'dict', 'file_path': './main.py', 'implementation_details': {'TYPE': 'function', 'expected_loc': 10, 'to_be_coded': True, 'logic': "1. Import FastAPI from fastapi. 2. Instantiate FastAPI as 'app'. 3. Define a route handler for GET / that returns {'message': 'Welcome to the FastAPI application!'}. 4. Include the route handler in the app instance.", 'dependencies': ['fastapi'], 'framework_specifics': 'Use FastAPI decorators for route definition', 'example_usage': "@app.get('/')\ndef read_root():\n    return {'message': 'Welcome to the FastAPI application!'}"}, 'language': 'python', 'framework': 'fastapi'}], 'function_name': None, 'parameters': None, 'return_type': None, 'file_path': './app/', 'implementation_details': {'TYPE': 'folder', 'expected_loc': 0, 'to_be_coded': False, 'logic': [], 'example_usage': ''}, 'language': 'python', 'framework': 'fastapi'}
+Processing task: Parent Task
+Processing task: create_main_app
+./main.py
+./app\main.py
+app\main.py
+Calling coding model...
+Model coding responded successfully
+4. Creating documentation...
+5. Executing project...
+Installing dependencies...
+Running: pip install -r requirements.txt
+✓ Successfully ran: pip install -r requirements.txt✗ Error running pip install -r requirements.txt: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>Traceback (most recent call last):
+  File "D:\codecodez\main5.py", line 918, in install_dependencies
+    print(f"✓ Successfully ran: {cmd}")  File "D:\codecodez\temp_runner.py", line 16, in write
+    self.stdout.write(text)
+  File "C:\Users\niosg\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\codecodez\temp_runner.py", line 30, in <module>
+    generator.run_pipeline("Create a REST API for Fibonacci sequence with FastAPI")
+  File "D:\codecodez\main5.py", line 1079, in run_pipeline
+    self.execute_and_debug()
+  File "D:\codecodez\main5.py", line 929, in execute_and_debug
+    self.install_dependencies()
+  File "D:\codecodez\main5.py", line 923, in install_dependencies
+    print(f"✗ Error running {cmd}: {str(e)}")  File "D:\codecodez\temp_runner.py", line 16, in write
+    self.stdout.write(text)
+  File "C:\Users\niosg\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 0: character maps to <undefined>

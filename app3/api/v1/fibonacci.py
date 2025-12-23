@@ -11,7 +11,7 @@ from services.fibonacci import calculate_fibonacci_number, calculate_fibonacci_s
 router = APIRouter(
     prefix="/fibonacci",
     tags=["fibonacci"],
-    responses={404: {"description": "Not found"}},
+    responses={404: {"description": "Not fou"}},
 )
 
 @router.get("/{n}", response_model=Dict)

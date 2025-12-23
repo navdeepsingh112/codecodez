@@ -16,7 +16,7 @@ OPENROUTER_API_KEY_L = os.getenv("OPENROUTER_API_KEY").split(',')
 N = len(OPENROUTER_API_KEY_L)
 print(OPENROUTER_API_KEY_L)
 I = 0
-OPENROUTER_API_KEY = OPENROUTER_API_KEY_L[1]
+OPENROUTER_API_KEY = OPENROUTER_API_KEY_L[0]
 BASE_URL = "https://openrouter.ai/api/v1"
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -835,12 +835,14 @@ gem 'bundler'
                 if task.file_path:
                     # Ensure path is within app directory
                     print(task.file_path)
+
                     if not task.file_path.startswith("./app/"):
-                        # file_extension = self.language_config["file_extensions"][0]
-                        # base_name = os.path.splitext(os.path.basename(task.file_path))[0]
-                        # task.file_path = os.path.join(self.app_directory, base_name + file_extension)
-                        task.file_path = os.path.join(self.app_directory, os.path.basename(task.file_path))
+                        # get the relative path without leading ./
+                        rel_path = os.path.relpath(task.file_path, ".")
+                        task.file_path = os.path.join("./app", rel_path)
+
                     print(task.file_path)
+
                     path = Path(task.file_path)
                     print(path)
                     # Check if it's a code file
@@ -1099,6 +1101,6 @@ if __name__ == "__main__":
     
     # You can test any of these:
     # user_input = "Create a REST API for Fibonacci sequence with FastAPI"
-    user_input = examples[1]
+    user_input = "Create a REST API for Fibonacci sequence with FastAPI"
     generator.run_pipeline(user_input)
 

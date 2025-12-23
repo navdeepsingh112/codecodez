@@ -1,32 +1,30 @@
-def calculate_fibonacci(n: int) -> int:
+def calculate_fibonacci(n: int) -> list[int]:
     """
-    Calculate the nth Fibonacci number using an iterative approach.
+    Compute the Fibonacci sequence iteratively with O(n) complexity.
 
-    Parameters:
-    n (int): The position in the Fibonacci sequence (0-based index).
+    Args:
+        n: The number of Fibonacci numbers to generate (non-negative integer).
 
     Returns:
-    int: The nth Fibonacci number.
+        A list containing the first n Fibonacci numbers.
 
     Raises:
-    ValueError: If n is not a non-negative integer.
+        ValueError: If n is negative.
 
     Examples:
-    >>> calculate_fibonacci(0)
-    0
-    >>> calculate_fibonacci(1)
-    1
-    >>> calculate_fibonacci(10)
-    55
+        >>> calculate_fibonacci(5)
+        [0, 1, 1, 2, 3]
     """
-    if not isinstance(n, int) or n < 0:
+    if n < 0:
         raise ValueError("n must be a non-negative integer")
     if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        a, b = 0, 1
-        for _ in range(2, n + 1):
-            a, b = b, a + b
-        return b
+        return []
+    if n == 1:
+        return [0]
+    
+    sequence = [0, 1]
+    for i in range(2, n):
+        next_value = sequence[-1] + sequence[-2]
+        sequence.append(next_value)
+    
+    return sequence

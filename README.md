@@ -1,7 +1,7 @@
 # Generated Python Project
 
 ## Project Details
-- **Language**: python
+- **Language**: python 
 - **Framework**: fastapi
 - **Generated from**: create a fastapi server for fibonacci series
 
